@@ -1,0 +1,28 @@
+# Bundle patch for dsh-session-namer.
+#
+# 1. Raise the base session-title limits so our 13-byte prefix is never truncated
+#    and normal titles are not clipped (256 is effectively "unlimited" here).
+# 2. Disable the built-in first-prompt LLM provider: sessionTitle accepts only one
+#    provider, so ours must replace it.
+# 3. Insert our provider row.
+
+- id: session-title
+  name: "@deepseek-ai/dsh-session-title"
+  config:
+    fallbackMaxWords: 12
+    fallbackMaxBytes: 256
+    maxTitleBytes: 256
+
+- id: session-title-llm
+  disabled: true
+
+- insert:
+    - id: session-title-category
+      name: "dsh-session-namer"
+      config:
+        mode: hybrid
+        targetCjkCharacters: 14
+        maxTitleBytes: 256
+        maxInputBytes: 8192
+        maxOutputTokens: 512
+        timeoutMs: 5000

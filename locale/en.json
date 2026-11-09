@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session Category Namer",
+    "description": "Classify each session from its first message and prefix the title with an emoji category, e.g. 🔬研究 | exploring algorithms."
+  }
+}

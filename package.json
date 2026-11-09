@@ -1,0 +1,51 @@
+{
+  "name": "dsh-session-namer",
+  "version": "1.0.0",
+  "description": "Classify each DSH session from its first user message and prefix the session title with an emoji category.",
+  "type": "module",
+  "license": "MIT",
+  "author": "CresBigB",
+  "homepage": "https://github.com/CresBigB/dsh-session-namer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CresBigB/dsh-session-namer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CresBigB/dsh-session-namer/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "session",
+    "session-title",
+    "naming",
+    "emoji"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4",
+    "@deepseek-ai/schemastery": "*",
+    "@deepseek-ai/dsh-session": "*",
+    "@deepseek-ai/dsh-session-title": "*",
+    "@deepseek-ai/dsh-session-title-llm": "*"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
